@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:5000/sponsors
+
+### Create a new sponsor
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "TechCorp Solutions",
+  "description": "Leading technology solutions provider",
+  "logo": "https://example.com/techcorp-logo.png",
+  "website": "https://techcorp.com",
+  "contactEmail": "contact@techcorp.com",
+  "contactPhone": "+254712345678",
+  "address": "123 Tech Street, Nairobi, Kenya"
+}
+
+### Get all sponsors
+GET {{baseUrl}}
+
+### Get active sponsors
+GET {{baseUrl}}/active
+
+### Get sponsor by ID
+GET {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+
+### Update sponsor
+PUT {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+Content-Type: application/json
+
+{
+  "description": "Premier technology solutions provider in East Africa",
+  "contactPhone": "+254798765432",
+  "address": "456 Innovation Avenue, Nairobi, Kenya"
+}
+
+### Delete sponsor
+DELETE {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1 

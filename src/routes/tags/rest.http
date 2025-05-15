@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:5000/tags
+
+### Create a new tag
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Technology",
+  "description": "News and updates about technology"
+}
+
+### Get all tags
+GET {{baseUrl}}
+
+### Get active tags
+GET {{baseUrl}}/active
+
+### Get popular tags
+GET {{baseUrl}}/popular?limit=5
+
+### Get tag by ID
+GET {{baseUrl}}/tagId
+
+### Update tag
+PUT {{baseUrl}}/tagId
+Content-Type: application/json
+
+{
+  "name": "Tech News",
+  "description": "Latest technology news and updates",
+  "isActive": true
+}
+
+### Delete tag
+DELETE {{baseUrl}}/tagId 

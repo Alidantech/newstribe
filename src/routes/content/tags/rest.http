@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:5000/content-tags
+
+### Create a new content tag
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "contentId",
+  "tag": "tagId"
+}
+
+### Get all content tags
+GET {{baseUrl}}
+
+### Get tags by content ID
+GET {{baseUrl}}/content/contentId
+
+### Get content by tag ID
+GET {{baseUrl}}/tag/tagId
+
+### Get content tag by ID
+GET {{baseUrl}}/contentTagId
+
+### Add multiple tags to content
+POST {{baseUrl}}/content/contentId/multiple
+Content-Type: application/json
+
+{
+  "tagIds": ["tagId1", "tagId2", "tagId3"]
+}
+
+### Remove multiple tags from content
+DELETE {{baseUrl}}/content/contentId/multiple
+Content-Type: application/json
+
+{
+  "tagIds": ["tagId1", "tagId2"]
+}
+
+### Delete content tag
+DELETE {{baseUrl}}/contentTagId 

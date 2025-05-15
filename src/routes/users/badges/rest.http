@@ -1,0 +1,21 @@
+@baseUrl = http://localhost:5000/users/badges
+
+### Award Badge to User
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "badgeId": "123456789"
+}
+
+### Get User Badges
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get User Badge Count
+GET {{baseUrl}}/count
+Content-Type: application/json
+
+### Check if User has Badge
+GET {{baseUrl}}/123456789/check
+Content-Type: application/json 

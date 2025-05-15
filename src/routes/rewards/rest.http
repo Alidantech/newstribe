@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:5000/rewards
+
+### Create a new reward
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Premium Airtime",
+  "description": "Get 1000 KES airtime for your phone",
+  "type": "airtime",
+  "pointsRequired": 5000,
+  "quantity": 100,
+  "image": "https://example.com/airtime-reward.jpg",
+  "expiryDate": "2024-12-31T23:59:59.000Z"
+}
+
+### Get all rewards
+GET {{baseUrl}}
+
+### Get active rewards
+GET {{baseUrl}}/active
+
+### Get rewards by type
+GET {{baseUrl}}/type/airtime
+
+### Get reward by ID
+GET {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+
+### Update reward
+PUT {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+Content-Type: application/json
+
+{
+  "pointsRequired": 4500,
+  "quantity": 150,
+  "expiryDate": "2024-12-31T23:59:59.000Z"
+}
+
+### Delete reward
+DELETE {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1 

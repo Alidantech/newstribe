@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:5000/content
+
+### Get All Content
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get Content by ID
+GET {{baseUrl}}/68262e5b7654d870d0817fb9
+Content-Type: application/json
+
+### Create Content
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "title": "Sample Article",
+  "description": "This is a sample article",
+  "type": "article",
+  "category": "Technology",
+  "tags": ["tech", "ai", "future"],
+  "estimatedReadTime": 5,
+  "points": 100,
+  "isSponsored": false,
+  "content": "This is the main content of the article..."
+}
+
+### Update Content
+PUT {{baseUrl}}/68262e5b7654d870d0817fb9
+Content-Type: application/json
+
+{
+  "title": "Updated Article Title",
+  "description": "Updated description"
+}
+
+### Delete Content
+DELETE {{baseUrl}}/68262e5b7654d870d0817fb9
+Content-Type: application/json

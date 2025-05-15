@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5000/shares
+
+### Create a new share
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "contentId"
+}
+
+### Get all shares
+GET {{baseUrl}}
+
+### Get shares by content ID
+GET {{baseUrl}}/content/contentId
+
+### Get share count for content
+GET {{baseUrl}}/content/contentId/count
+
+### Get shares by user ID
+GET {{baseUrl}}/user/userId
+
+### Get share by ID
+GET {{baseUrl}}/shareId
+
+### Check if user has shared content
+GET {{baseUrl}}/content/contentId/check
+
+### Delete share
+DELETE {{baseUrl}}/shareId 

@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:5000/quizzes
+
+### Create a new quiz
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "65f1a2b3c4d5e6f7g8h9i0j1",
+  "questions": [
+    {
+      "question": "What is the capital of France?",
+      "options": ["London", "Berlin", "Paris", "Madrid"],
+      "correctAnswer": "Paris"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "correctAnswer": "Mars"
+    }
+  ],
+  "points": 100,
+  "startDate": "2024-03-20T00:00:00.000Z",
+  "endDate": "2024-03-27T00:00:00.000Z",
+  "status": "active",
+  "settings": {
+    "timeLimit": 300,
+    "maxAttempts": 3,
+    "difficulty": "medium"
+  }
+}
+
+### Get all quizzes
+GET {{baseUrl}}
+
+### Get active quizzes
+GET {{baseUrl}}/active
+
+### Get quiz by ID
+GET {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+
+### Update quiz
+PUT {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+Content-Type: application/json
+
+{
+  "points": 150,
+  "settings": {
+    "timeLimit": 400,
+    "maxAttempts": 5,
+    "difficulty": "hard"
+  }
+}
+
+### Update quiz status
+PATCH {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1/status
+Content-Type: application/json
+
+{
+  "status": "completed"
+}
+
+### Delete quiz
+DELETE {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1 

@@ -1,0 +1,21 @@
+@baseUrl = http://localhost:5000/users/rewards
+
+### Redeem a Reward
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "rewardId": "123456789"
+}
+
+### Get User's Redeemed Rewards
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get User's Reward Statistics
+GET {{baseUrl}}/stats
+Content-Type: application/json
+
+### Cancel Reward Redemption
+DELETE {{baseUrl}}/123456789
+Content-Type: application/json 

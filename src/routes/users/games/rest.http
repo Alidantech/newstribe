@@ -1,0 +1,22 @@
+@baseUrl = http://localhost:5000/users/games
+
+### Record Game Play
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "gameId": "123456789",
+  "pointsEarned": 100
+}
+
+### Get User Game History
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get User's Total Game Points
+GET {{baseUrl}}/points
+Content-Type: application/json
+
+### Get User's Game Statistics
+GET {{baseUrl}}/stats
+Content-Type: application/json 

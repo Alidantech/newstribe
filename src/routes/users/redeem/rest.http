@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:5000/users/redeem
+
+### Get Points Balance
+GET {{baseUrl}}/balance
+
+### Redeem Airtime
+POST {{baseUrl}}/airtime
+Content-Type: application/json
+
+{
+  "amount": 100
+}
+
+### Redeem Airtime (Insufficient Points)
+POST {{baseUrl}}/airtime
+Content-Type: application/json
+
+{
+  "amount": 1000
+}
+
+### Redeem Airtime (Invalid Amount)
+POST {{baseUrl}}/airtime
+Content-Type: application/json
+
+{
+  "amount": -50
+}
+
+### Redeem Airtime (Missing Amount)
+POST {{baseUrl}}/airtime
+Content-Type: application/json
+
+{
+}
+
+### Redeem Airtime (Unauthorized)
+POST {{baseUrl}}/airtime
+Content-Type: application/json
+
+{
+  "amount": 100
+} 

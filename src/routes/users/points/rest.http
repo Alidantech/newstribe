@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:5000/users/points
+
+### Get User Points History
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get Total Points
+GET {{baseUrl}}/total
+Content-Type: application/json
+
+### Get Points by Source
+GET {{baseUrl}}/source/content_read
+Content-Type: application/json 

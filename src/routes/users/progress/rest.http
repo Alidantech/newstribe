@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:5000/users/progress
+
+### Update User Progress
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "contentId": "123456789",
+  "progress": 75
+}
+
+### Get User Progress for Content
+GET {{baseUrl}}/123456789
+Content-Type: application/json
+
+### Get All User Progress
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Update Quiz Score
+PUT {{baseUrl}}/123456789/quiz
+Content-Type: application/json
+
+{
+  "score": 85
+} 

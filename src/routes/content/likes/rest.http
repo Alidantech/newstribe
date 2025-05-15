@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5000/likes
+
+### Create a new like
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "contentId"
+}
+
+### Get all likes
+GET {{baseUrl}}
+
+### Get likes by content ID
+GET {{baseUrl}}/content/contentId
+
+### Get like count for content
+GET {{baseUrl}}/content/contentId/count
+
+### Get likes by user ID
+GET {{baseUrl}}/user/userId
+
+### Get like by ID
+GET {{baseUrl}}/likeId
+
+### Check if user has liked content
+GET {{baseUrl}}/content/contentId/check
+
+### Delete like
+DELETE {{baseUrl}}/likeId 

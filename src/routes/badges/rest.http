@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:5000/badges
+
+### Create Badge (Admin Only)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Content Master",
+  "description": "Complete 10 content items",
+  "image": "content-master.png",
+  "pointsRequired": 100,
+  "criteria": {
+    "type": "content_completed",
+    "value": 10
+  }
+}
+
+### Get All Badges
+GET {{baseUrl}}
+Content-Type: application/json
+
+### Get Badge by ID
+GET {{baseUrl}}/123456789
+Content-Type: application/json
+
+### Get Badges by Criteria
+GET {{baseUrl}}/criteria?type=points&value=100
+Content-Type: application/json
+
+### Update Badge (Admin Only)
+PUT {{baseUrl}}/123456789
+Content-Type: application/json
+
+{
+  "description": "Complete 15 content items",
+  "criteria": {
+    "value": 15
+  }
+}
+
+### Delete Badge (Admin Only)
+DELETE {{baseUrl}}/123456789
+Content-Type: application/json 

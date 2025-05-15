@@ -1,0 +1,95 @@
+@baseUrl = http://localhost:5000/users
+
+# !PUBLIC ROUTES
+
+### Register User
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "user-agent1@gmail.com",
+  "password": "password123"
+}
+
+### Login User
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "user-agent1@gmail.com",
+  "password": "password123"
+}
+
+# !PUBLIC ROUTES
+
+### Get User Profile
+GET {{baseUrl}}/profile/me
+
+### Update User Profile
+PUT {{baseUrl}}/profile/me
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Admin",
+  "phone": "+1234567890",
+  "avatar": "https://example.com/avatar.jpg"
+}
+
+### Switch Organisation
+PATCH {{baseUrl}}/switch-organisation
+Content-Type: application/json
+
+{
+  "organisationId": "67db5e452f2c51b80ba0de0a"
+}
+
+### Email OTP Login
+POST {{baseUrl}}/email-otp-login
+Content-Type: application/json
+
+{
+  "email": "user-agent@gmail.com"
+}
+
+### Resend OTP by Email
+POST {{baseUrl}}/resend-otp-email
+Content-Type: application/json
+
+{
+  "email": "user-agent@gmail.com"
+}
+
+### Verify Email OTP
+POST {{baseUrl}}/verify-email-otp
+Content-Type: application/json
+
+{
+  "email": "user-agent@gmail.com",
+  "otp": "123456"
+}
+
+### SuperAdmin Login
+POST {{baseUrl}}/super-admin-login
+Content-Type: application/json
+
+{
+  "email": "superadmin@gmail.com",
+  "password": "password123"
+}
+
+### Create SuperAdmin User
+POST {{baseUrl}}/super-admin-create-user
+Content-Type: application/json
+
+{
+  "email": "superadmin@gmail.com",
+  "password": "password123",
+  "firstName": "Super",
+  "lastName": "Admin",
+  "phone": "+1234567890",
+  "avatar": "https://example.com/avatar.jpg",
+  "roles": ["super_admin"]
+} 

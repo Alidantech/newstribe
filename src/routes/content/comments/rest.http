@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:5000/comments
+
+### Create a new comment
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "contentId",
+  "text": "This is a great article!"
+}
+
+### Get all comments
+GET {{baseUrl}}
+
+### Get comments by content ID
+GET {{baseUrl}}/content/contentId
+
+### Get comments by user ID
+GET {{baseUrl}}/user/userId
+
+### Get comment by ID
+GET {{baseUrl}}/commentId
+
+### Update comment
+PUT {{baseUrl}}/commentId
+Content-Type: application/json
+
+{
+  "text": "Updated comment text"
+}
+
+### Delete comment
+DELETE {{baseUrl}}/commentId 
