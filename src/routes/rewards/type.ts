@@ -15,6 +15,7 @@ export interface IReward extends Document {
   quantity: number;
   image: string;
   expiryDate?: Date;
+  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

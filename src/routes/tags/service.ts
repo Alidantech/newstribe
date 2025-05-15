@@ -21,10 +21,7 @@ export const createTagService = async (tagData: Partial<ITag>): Promise<ITag> =>
  * Get all tags
  */
 export const getAllTagsService = async (query: any = {}): Promise<any> => {
-  const apiFeatures = new ApiFeatures(Tag.find(), query)
-    .filteration()
-    .sort()
-    .pagination();
+  const apiFeatures = new ApiFeatures(Tag.find(), query).filteration().sort().pagination();
 
   const tags = await apiFeatures.getPaginatedData<ITag>("tags");
   return tags;
@@ -42,12 +39,28 @@ export const getTagByIdService = async (tagId: string): Promise<ITag> => {
 };
 
 /**
+ * Get tag by name
+ */
+export const getTagByNameService = async (name: string): Promise<ITag> => {
+  let tag: any = await Tag.findOne({ name: name.toLowerCase() });
+
+  // if tag not found, create tag
+  if (!tag) {
+    // create tag
+    tag = await createTagService({
+      name: name.toLowerCase(),
+      description: name.toLowerCase(),
+    });
+  }
+  
+  // increment tag usage
+  return tag;
+};
+
+/**
  * Update tag
  */
-export const updateTagService = async (
-  tagId: string,
-  updateData: Partial<ITag>
-): Promise<ITag> => {
+export const updateTagService = async (tagId: string, updateData: Partial<ITag>): Promise<ITag> => {
   const tag = await Tag.findById(tagId);
   if (!tag) {
     throw new ApiError(404, "Tag not found");
@@ -90,9 +103,7 @@ export const getActiveTagsService = async (): Promise<ITag[]> => {
  * Get popular tags
  */
 export const getPopularTagsService = async (limit: number = 10): Promise<ITag[]> => {
-  return Tag.find({ isActive: true })
-    .sort({ usageCount: -1 })
-    .limit(limit);
+  return Tag.find({ isActive: true }).sort({ usageCount: -1 }).limit(limit);
 };
 
 /**
@@ -108,4 +119,4 @@ export const incrementTagUsageService = async (tagId: string): Promise<ITag> => 
   await tag.save();
 
   return tag;
-}; 
+};

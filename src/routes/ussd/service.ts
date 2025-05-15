@@ -8,18 +8,18 @@ const QUESTIONS: IQuestion[] = [
   {
     question: "What is the capital of Kenya?",
     answer: "Nairobi",
-    points: 10
+    points: 10,
   },
   {
     question: "Which year did Kenya gain independence?",
     answer: "1963",
-    points: 15
+    points: 15,
   },
   {
     question: "What is the largest lake in Kenya?",
     answer: "Lake Victoria",
-    points: 20
-  }
+    points: 20,
+  },
 ];
 
 class UserInputHandler implements IUserContext {
@@ -32,8 +32,10 @@ class UserInputHandler implements IUserContext {
   requestIndex: number;
   points: number;
   currentQuestion: {
-      points: number; question: string; answer: string 
-} | null;
+    points: number;
+    question: string;
+    answer: string;
+  } | null;
 
   constructor() {
     this.userContext = USSD_CONTEXTS.WELCOME;
@@ -65,11 +67,11 @@ class UserInputHandler implements IUserContext {
 
       // Check if user is registered
       if (this.phoneNumber) {
-        const user = await userService.getUserByEmailService(this.phoneNumber);
+        const user = await userService.getUserByPhoneNumberService(this.phoneNumber);
         this.setUserInfo({
           registered: true,
           userData: user,
-          userId: user._id.toString()
+          userId: user._id.toString(),
         });
       }
 
@@ -101,7 +103,7 @@ class UserInputHandler implements IUserContext {
     if (!this.registered) {
       return `CON ${USSD_MESSAGES.WELCOME}\n\nPlease enter your email to authenticate:`;
     }
-    
+
     this.setUserContext(USSD_CONTEXTS.AUTHENTICATE);
     return `CON Welcome back!\n\nPlease enter your password to continue:`;
   }
@@ -111,7 +113,7 @@ class UserInputHandler implements IUserContext {
       return Promise.resolve(`END ${USSD_MESSAGES.ERROR}`);
     }
 
-    return this.user.comparePassword(text).then(isValid => {
+    return this.user.comparePassword(text).then((isValid) => {
       if (isValid) {
         this.setUserContext(USSD_CONTEXTS.ANSWER_QUESTION);
         const question = this.getRandomQuestion();
@@ -164,18 +166,21 @@ class UserInputHandler implements IUserContext {
 
     const requiredPoints = redeemService.kesToPoints(amount);
     if (this.points < requiredPoints) {
-      return `END ${USSD_MESSAGES.INSUFFICIENT_POINTS
-        .replace("{points}", requiredPoints.toString())
-        .replace("{amount}", amount.toString())}`;
+      return `END ${USSD_MESSAGES.INSUFFICIENT_POINTS.replace(
+        "{points}",
+        requiredPoints.toString()
+      ).replace("{amount}", amount.toString())}`;
     }
 
     // Send airtime
-    redeemService.sendAirtime(this.phoneNumber || '', amount)
+    redeemService
+      .sendAirtime(this.phoneNumber || "", amount)
       .then(() => {
         this.points -= requiredPoints;
-        return `END ${USSD_MESSAGES.REDEEM_SUCCESS
-          .replace("{amount}", amount.toString())
-          .replace("{phoneNumber}", this.phoneNumber || '')}`;
+        return `END ${USSD_MESSAGES.REDEEM_SUCCESS.replace("{amount}", amount.toString()).replace(
+          "{phoneNumber}",
+          this.phoneNumber || ""
+        )}`;
       })
       .catch(() => {
         return `END ${USSD_MESSAGES.REDEEM_FAILED}`;

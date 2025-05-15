@@ -2,9 +2,9 @@ import { ContentTag } from "./model";
 import { ApiError } from "../../../utils/api.errors";
 import { ApiFeatures } from "../../../utils/api.features";
 import { IContentTag } from "./type";
-import { Tag } from "../../tags/model";
 import { IContent } from "../type";
 import { ITag } from "../../tags/type";
+import { getTagByNameService, incrementTagUsageService } from "../../tags/service";
 
 /**
  * Create a new content tag
@@ -13,7 +13,11 @@ export const createContentTagService = async (
   contentTagData: Partial<IContentTag>
 ): Promise<IContentTag> => {
   // Check if tag exists
-  const tag = await Tag.findById(contentTagData.tag);
+  const tag = await getTagByNameService(contentTagData.tag as unknown as string);
+
+  console.log(tag);
+
+  // if tag not found, create tag
   if (!tag) {
     throw new ApiError(404, "Tag not found");
   }
@@ -21,14 +25,21 @@ export const createContentTagService = async (
   // Check if content-tag combination already exists
   const existingContentTag = await ContentTag.findOne({
     content: contentTagData.content,
-    tag: contentTagData.tag,
+    tag: tag._id,
   });
 
   if (existingContentTag) {
     throw new ApiError(400, "This tag is already associated with the content");
   }
 
-  const contentTag = await ContentTag.create(contentTagData);
+  // increment tag usage
+  await incrementTagUsageService(tag._id as unknown as string);
+
+  const contentTag = await ContentTag.create({
+    content: contentTagData.content,
+    tag: tag._id,
+  });
+
   return contentTag.populate("tag", "name description");
 };
 

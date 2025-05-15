@@ -1,0 +1,108 @@
+@baseUrl = http://localhost:5000/ussd
+
+### USSD Welcome Menu (First Request)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": ""
+}
+
+### USSD Authentication - Enter Email
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com"
+}
+
+### USSD Authentication - Enter Password
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123"
+}
+
+### USSD Answer Question
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi"
+}
+
+### USSD Show Points and Redemption Menu
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi*"
+}
+
+### USSD Select Redeem Airtime
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi**1"
+}
+
+### USSD Enter Airtime Amount
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi**1*100"
+}
+
+### USSD Check Balance
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi**2"
+}
+
+### USSD Exit
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi**3"
+}
+
+### USSD Invalid Input
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254700000000",
+  "text": "user@example.com*password123*Nairobi**invalid"
+}
+
+### USSD Missing Phone Number
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "text": "user@example.com*password123"
+}
+
+### USSD New Session (Different Phone)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "+254711111111",
+  "text": ""
+} 

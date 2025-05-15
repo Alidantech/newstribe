@@ -20,7 +20,7 @@ GET {{baseUrl}}
 Content-Type: application/json
 
 ### Get Badge by ID
-GET {{baseUrl}}/123456789
+GET {{baseUrl}}/6826557accbd4303555619f5
 Content-Type: application/json
 
 ### Get Badges by Criteria

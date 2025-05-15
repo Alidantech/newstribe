@@ -164,6 +164,14 @@ export const getUserByEmailService = async (email: string) => {
 };
 
 /**
+ * Get user by phone number
+ */
+export const getUserByPhoneNumberService = async (phoneNumber: string) => {
+  const user = await User.findOne({ phoneNumber }).lean();
+  return user?.toObject();
+};
+
+/**
  * Send OTP by email
  */
 export const sendOtpByEmailService = async (email: string): Promise<void> => {

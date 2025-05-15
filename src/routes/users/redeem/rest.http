@@ -8,7 +8,7 @@ POST {{baseUrl}}/airtime
 Content-Type: application/json
 
 {
-  "amount": 100
+  "amount": 1
 }
 
 ### Redeem Airtime (Insufficient Points)

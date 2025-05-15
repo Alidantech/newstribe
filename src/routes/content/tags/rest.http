@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:5000/content-tags
+@baseUrl = http://localhost:5000/content/tags
 
 ### Create a new content tag
 POST {{baseUrl}}
@@ -13,7 +13,7 @@ Content-Type: application/json
 GET {{baseUrl}}
 
 ### Get tags by content ID
-GET {{baseUrl}}/content/contentId
+GET {{baseUrl}}/68265b47e01334e4187802d3
 
 ### Get content by tag ID
 GET {{baseUrl}}/tag/tagId

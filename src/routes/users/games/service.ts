@@ -31,7 +31,7 @@ export const recordGamePlayService = async (
     userId,
     pointsEarned,
     PointsSource.GAME_PLAY,
-    `Played ${game.name}`
+    `Played ${game.type}`
   );
 
   return userGame;

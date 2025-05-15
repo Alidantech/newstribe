@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5000/views
+
+### Create a new view
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "content": "contentId"
+}
+
+### Get all views
+GET {{baseUrl}}
+
+### Get views by content ID
+GET {{baseUrl}}/content/contentId
+
+### Get view count for content
+GET {{baseUrl}}/content/contentId/count
+
+### Get views by user ID
+GET {{baseUrl}}/user/userId
+
+### Get view by ID
+GET {{baseUrl}}/viewId
+
+### Check if user has viewed content
+GET {{baseUrl}}/content/contentId/check
+
+### Delete view
+DELETE {{baseUrl}}/viewId

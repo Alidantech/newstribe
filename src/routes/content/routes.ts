@@ -1,6 +1,11 @@
 import { Router } from "express";
 import * as contentController from "./controller";
 import { protectedRoute } from "../../middleware/auth-user";
+import contentTagRouter from "./tags/routes";
+import contentCommentRouter from "./comments/routes";
+import contentLikeRouter from "./likes/routes";
+import contentShareRouter from "./shares/routes";
+import contentViewRouter from "./views/routes";
 
 const router = Router();
 
@@ -43,5 +48,20 @@ router.put("/:id", contentController.updateContent);
  * @access Private
  */
 router.delete("/:id", contentController.deleteContent);
+
+//! CONTENT TAGS ROUTES
+router.use("/:id/tags", contentTagRouter);
+
+//! CONTENT COMMENTS ROUTES
+router.use("/:id/comments", contentCommentRouter);
+
+//! CONTENT LIKES ROUTES
+router.use("/:id/likes", contentLikeRouter);
+
+//! CONTENT SHARES ROUTES
+router.use("/:id/shares", contentShareRouter);
+
+//! CONTENT VIEWS ROUTES
+router.use("/:id/views", contentViewRouter);
 
 export default router;

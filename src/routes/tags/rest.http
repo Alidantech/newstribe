@@ -5,8 +5,8 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "name": "Technology",
-  "description": "News and updates about technology"
+  "name": "Sports",
+  "description": "Football, Basketball, and more"
 }
 
 ### Get all tags
@@ -19,10 +19,10 @@ GET {{baseUrl}}/active
 GET {{baseUrl}}/popular?limit=5
 
 ### Get tag by ID
-GET {{baseUrl}}/tagId
+GET {{baseUrl}}/682657a8ff7e68e4cfa4bb35
 
 ### Update tag
-PUT {{baseUrl}}/tagId
+PUT {{baseUrl}}/682657a8ff7e68e4cfa4bb35
 Content-Type: application/json
 
 {
@@ -32,4 +32,4 @@ Content-Type: application/json
 }
 
 ### Delete tag
-DELETE {{baseUrl}}/tagId 
+DELETE {{baseUrl}}/682657a8ff7e68e4cfa4bb35 

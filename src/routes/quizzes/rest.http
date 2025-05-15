@@ -5,7 +5,7 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "content": "65f1a2b3c4d5e6f7g8h9i0j1",
+  "content": "68262e537654d870d0817fb5",
   "questions": [
     {
       "question": "What is the capital of France?",
@@ -36,10 +36,10 @@ GET {{baseUrl}}
 GET {{baseUrl}}/active
 
 ### Get quiz by ID
-GET {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+GET {{baseUrl}}/6826552cccbd4303555619d0
 
 ### Update quiz
-PUT {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+PUT {{baseUrl}}/6826552cccbd4303555619d0
 Content-Type: application/json
 
 {
@@ -52,7 +52,7 @@ Content-Type: application/json
 }
 
 ### Update quiz status
-PATCH {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1/status
+PATCH {{baseUrl}}/6826552cccbd4303555619d0/status
 Content-Type: application/json
 
 {

@@ -4,7 +4,7 @@ import { ApiFeatures } from "../../../utils/api.features";
 import { IUserBadge } from "./type";
 import { addUserPointsService } from "../points/service";
 import { PointsSource } from "../points/type";
-import { Badge } from "../badges/model";
+import { Badge } from "../../badges/model";
 
 /**
  * Award badge to user
@@ -31,10 +31,10 @@ export const awardBadgeToUserService = async (
   });
 
   // Award points for earning the badge
-  if (badge.points) {
+  if (badge.pointsRequired) {
     await addUserPointsService(
       userId,
-      badge.points,
+      badge.pointsRequired,
       PointsSource.BADGE_EARN,
       `Earned ${badge.name} badge`
     );

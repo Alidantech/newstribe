@@ -9,7 +9,7 @@ Content-Type: application/json
 {
   "firstName": "John",
   "lastName": "Doe",
-  "email": "user-agent1@gmail.com",
+  "email": "cynthia@gmail.com",
   "password": "password123"
 }
 
@@ -38,13 +38,6 @@ Content-Type: application/json
   "avatar": "https://example.com/avatar.jpg"
 }
 
-### Switch Organisation
-PATCH {{baseUrl}}/switch-organisation
-Content-Type: application/json
-
-{
-  "organisationId": "67db5e452f2c51b80ba0de0a"
-}
 
 ### Email OTP Login
 POST {{baseUrl}}/email-otp-login

@@ -5,7 +5,7 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "badgeId": "123456789"
+  "badgeId": "6826557accbd4303555619f5"
 }
 
 ### Get User Badges
@@ -17,5 +17,5 @@ GET {{baseUrl}}/count
 Content-Type: application/json
 
 ### Check if User has Badge
-GET {{baseUrl}}/123456789/check
+GET {{baseUrl}}/6826557accbd4303555619f5/check
 Content-Type: application/json 

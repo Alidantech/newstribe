@@ -5,13 +5,13 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "name": "TechCorp Solutions",
-  "description": "Leading technology solutions provider",
-  "logo": "https://example.com/techcorp-logo.png",
-  "website": "https://techcorp.com",
-  "contactEmail": "contact@techcorp.com",
+  "name": "Safaricom",
+  "description": "Leading telecommunications provider",
+  "logo": "https://example.com/safaricom-logo.png",
+  "website": "https://safaricom.com",
+  "contactEmail": "contact@safaricom.com",
   "contactPhone": "+254712345678",
-  "address": "123 Tech Street, Nairobi, Kenya"
+  "address": "123 Safaricom Street, Nairobi, Kenya"
 }
 
 ### Get all sponsors
