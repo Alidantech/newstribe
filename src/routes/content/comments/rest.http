@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:5000/comments
+@baseUrl = http://localhost:5000/content/68265b47e01334e4187802d3/comments
 
 ### Create a new comment
 POST {{baseUrl}}
@@ -13,7 +13,7 @@ Content-Type: application/json
 GET {{baseUrl}}
 
 ### Get comments by content ID
-GET {{baseUrl}}/content/contentId
+GET {{baseUrl}}/content/68265b47e01334e4187802d3
 
 ### Get comments by user ID
 GET {{baseUrl}}/user/userId

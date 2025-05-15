@@ -4,13 +4,25 @@ import { IContent } from "../content/type";
 export interface IQuizQuestion extends Document {
   question: string;
   options: string[];
-  correctAnswer: string;
+  correctIndex: number;
+}
+
+export enum QuizDifficulty {
+  EASY = "easy",
+  MEDIUM = "medium",
+  HARD = "hard",
 }
 
 export interface IQuizSettings {
   timeLimit: number;
   maxAttempts: number;
-  difficulty: "easy" | "medium" | "hard";
+  difficulty: QuizDifficulty;
+}
+
+export enum QuizStatus {
+  ACTIVE = "active",
+  INACTIVE = "inactive",
+  COMPLETED = "completed",
 }
 
 export interface IQuiz extends Document {
@@ -19,7 +31,7 @@ export interface IQuiz extends Document {
   points: number;
   startDate: Date;
   endDate: Date;
-  status: "active" | "inactive" | "completed";
+  status: QuizStatus;
   settings: IQuizSettings;
   createdAt: Date;
   updatedAt: Date;

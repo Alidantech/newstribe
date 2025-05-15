@@ -5,7 +5,7 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "name": "Premium Airtime",
+  "name": "Basic Airtime",
   "description": "Get 1000 KES airtime for your phone",
   "type": "airtime",
   "pointsRequired": 5000,

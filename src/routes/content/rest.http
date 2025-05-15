@@ -8,21 +8,63 @@ Content-Type: application/json
 GET {{baseUrl}}/68262e5b7654d870d0817fb9
 Content-Type: application/json
 
+### Get Content by Category
+GET {{baseUrl}}/category/Technology
+Content-Type: application/json
+
+### Get Content by Reading Level
+GET {{baseUrl}}/level/beginner
+Content-Type: application/json
+
+### Get Content by Tags
+GET {{baseUrl}}/tags/ai
+Content-Type: application/json
+
+### Get Content by Search
+GET {{baseUrl}}/search/ai
+Content-Type: application/json
+
+### Get Content by Sponsored
+GET {{baseUrl}}/sponsored
+Content-Type: application/json
+
+### Get Content by Sponsored
+GET {{baseUrl}}/sponsored
+Content-Type: application/json
+
+### Generate Content
+POST {{baseUrl}}/generate
+Content-Type: application/json
+
+{
+  "prompt": "Nation Media Group is the best media group in Kenya",
+  "options": {
+    "type": "article",
+    "category": "Media",
+    "tags": ["nation media group", "media group", "kenya", "africa", "media"],
+    "estimatedReadTime": 2,
+    "points": 200,
+    "isSponsored": true,
+    "sponsor": "682672a0998ea46021d87519"
+  }
+}
+
 ### Create Content
 POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "title": "Sample Article",
-  "description": "This is a sample article",
+  "title": "The AI Revolution: How Artificial Intelligence is Transforming Technology",
+  "description": "An in-depth exploration of how AI is reshaping industries, revolutionizing workflows, and what the future holds for this disruptive technology.",
   "type": "article",
   "category": "Technology",
-  "tags": ["tech", "ai", "future"],
-  "estimatedReadTime": 5,
-  "points": 100,
+  "tags": ["ai", "machine learning", "future tech", "automation", "ethics"],
+  "estimatedReadTime": 10,
+  "points": 150,
   "isSponsored": false,
-  "content": "This is the main content of the article..."
+  "content": "<h2>Introduction</h2>\n<p>Artificial Intelligence (AI) has moved from research labs into everyday life, becoming a cornerstone of the digital economy. From autonomous vehicles to generative models like ChatGPT, AI is changing how we live, work, and interact.</p>\n\n<h2>1. AI Across Industries</h2>\n<h3>Healthcare</h3>\n<p>AI is helping doctors diagnose diseases more accurately and at earlier stages. For example, Google's DeepMind developed an AI system that can outperform radiologists in detecting breast cancer from mammograms. AI-driven drug discovery platforms, such as BenevolentAI and Atomwise, are accelerating the development of treatments by analyzing molecular interactions faster than any human could.</p>\n\n<h3>Finance</h3>\n<p>Financial institutions use AI for fraud detection, algorithmic trading, and personalized banking experiences. JPMorgan Chase’s COiN software reviews legal documents in seconds—a task that would take lawyers hundreds of hours.</p>\n\n<h3>Transportation</h3>\n<p>Companies like Tesla, Waymo, and Cruise are heavily invested in AI for autonomous driving. While full self-driving capability is still under scrutiny, Level 3 automation is already being rolled out in limited settings.</p>\n\n<h2>2. The Rise of Generative AI</h2>\n<p>Generative AI has taken the world by storm. Tools like OpenAI's ChatGPT and DALL·E, Anthropic's Claude, and Midjourney are enabling users to generate human-like text, art, code, and music.</p>\n<p>In 2024, OpenAI launched GPT-4 Turbo with enhanced context length and cheaper pricing, making it more viable for commercial applications such as AI assistants, coding copilots, and content creation platforms.</p>\n\n<h3>Real-World Applications</h3>\n<ul>\n  <li><strong>Education:</strong> Personalized tutoring systems powered by AI adapt to a student’s learning style and pace.</li>\n  <li><strong>Marketing:</strong> AI is used to generate targeted ad copy, optimize campaigns, and even produce product images at scale.</li>\n  <li><strong>Software Engineering:</strong> GitHub Copilot and other tools assist developers by suggesting code and documentation in real time.</li>\n</ul>\n\n<h2>3. Ethical and Societal Challenges</h2>\n<p>While the benefits of AI are profound, so are the risks. Bias in training data can lead to discriminatory outcomes. For instance, facial recognition software has been found to be less accurate for people with darker skin tones, raising concerns about fairness and surveillance.</p>\n<p>In 2024, the European Union passed the <strong>AI Act</strong>, a regulatory framework that categorizes AI applications by risk and imposes strict compliance requirements on high-risk systems. This move signals a global shift toward responsible AI development.</p>\n\n<h3>Key Ethical Concerns</h3>\n<ul>\n  <li>Data privacy and consent</li>\n  <li>Algorithmic bias</li>\n  <li>Job displacement through automation</li>\n  <li>Accountability and transparency</li>\n</ul>\n\n<blockquote>\n  <p>“With great power comes great responsibility.” — Voltaire (popularized by Spider-Man)</p>\n</blockquote>\n\n<h2>4. Future Outlook</h2>\n<p>The next decade will likely see the convergence of AI with other frontier technologies such as quantum computing, biotechnology, and advanced robotics. AI will not just augment human capabilities but potentially redefine them.</p>\n<p>Notably, companies like Nvidia, OpenAI, Microsoft, and Meta are investing billions in AI research. In parallel, governments are crafting policies to ensure AI is developed in alignment with human values and safety.</p>\n\n<h3>Predictions for the Next 5 Years</h3>\n<ol>\n  <li>AI agents will perform complex tasks like scheduling meetings, conducting research, and negotiating contracts.</li>\n  <li>AI-generated media will become indistinguishable from human-created content.</li>\n  <li>Universal translators powered by AI will break language barriers in real time.</li>\n  <li>AI regulation will become as central as data protection laws are today.</li>\n</ol>\n\n<h2>Conclusion</h2>\n<p>Artificial Intelligence is no longer a futuristic concept—it's the defining technology of our time. Embracing it thoughtfully, with emphasis on ethics, safety, and inclusivity, will determine whether it becomes a force for empowerment or division.</p>\n<p><strong>The AI revolution is here. The question is: Are we ready?</strong></p>"
 }
+
 
 ### Update Content
 PUT {{baseUrl}}/68262e5b7654d870d0817fb9

@@ -10,9 +10,11 @@ Content-Type: application/json
   "firstName": "John",
   "lastName": "Doe",
   "email": "cynthia@gmail.com",
-  "password": "password123"
+  "password": "password123",
+  "contentPreferences": ["68265b47e01334e4187802d3"]
 }
 
+### Login User
 ### Login User
 POST {{baseUrl}}/login
 Content-Type: application/json

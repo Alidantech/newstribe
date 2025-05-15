@@ -13,6 +13,7 @@ const contentSchema = new mongoose.Schema<IContent>(
     points: { type: Number, required: true },
     isSponsored: { type: Boolean, default: false },
     sponsor: { type: mongoose.Schema.Types.ObjectId, ref: "Sponsor" },
+    tags: { type: [String], required: true },
     blockchainHash: { type: String },
     trustRating: { type: Number, default: 0 },
     trustRatingCount: { type: Number, default: 0 },

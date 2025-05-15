@@ -18,6 +18,8 @@ export const getAllCommentsService = async (query: any = {}): Promise<any> => {
   const apiFeatures = new ApiFeatures(Comment.find(), query)
     .filteration()
     .sort()
+    .search()
+    .fields()
     .pagination();
 
   const comments = await apiFeatures.getPaginatedData<IComment>("comments");
@@ -68,17 +70,20 @@ export const deleteCommentService = async (commentId: string): Promise<void> => 
 /**
  * Get comments by content ID
  */
-export const getCommentsByContentService = async (contentId: string): Promise<IComment[]> => {
-  return Comment.find({ content: contentId })
-    .populate("user", "name email avatar")
-    .sort({ createdAt: -1 });
+export const getCommentsByContentService = async (contentId: string): Promise<any> => {
+  const apiFeatures = new ApiFeatures(Comment.find({ content: contentId }), {})
+    .filteration()
+    .sort()
+    .search()
+    .fields()
+    .pagination();
+  const comments = await apiFeatures.getPaginatedData<IComment>("comments");
+  return comments;
 };
 
 /**
  * Get comments by user ID
  */
 export const getCommentsByUserService = async (userId: string): Promise<IComment[]> => {
-  return Comment.find({ user: userId })
-    .populate("content", "title")
-    .sort({ createdAt: -1 });
-}; 
+  return Comment.find({ user: userId }).populate("content", "title").sort({ createdAt: -1 });
+};

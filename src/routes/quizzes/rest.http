@@ -10,12 +10,12 @@ Content-Type: application/json
     {
       "question": "What is the capital of France?",
       "options": ["London", "Berlin", "Paris", "Madrid"],
-      "correctAnswer": "Paris"
+      "correctIndex": 2
     },
     {
       "question": "Which planet is known as the Red Planet?",
       "options": ["Venus", "Mars", "Jupiter", "Saturn"],
-      "correctAnswer": "Mars"
+      "correctIndex": 1
     }
   ],
   "points": 100,
@@ -28,6 +28,9 @@ Content-Type: application/json
     "difficulty": "medium"
   }
 }
+
+### Generate quiz with AI by content ID
+GET {{baseUrl}}/generate/68265e35b08f8342a6e2ab1f?difficulty=medium
 
 ### Get all quizzes
 GET {{baseUrl}}

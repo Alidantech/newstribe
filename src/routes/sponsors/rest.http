@@ -5,13 +5,13 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "name": "Safaricom",
-  "description": "Leading telecommunications provider",
-  "logo": "https://example.com/safaricom-logo.png",
-  "website": "https://safaricom.com",
-  "contactEmail": "contact@safaricom.com",
+  "name": "Nation Media Group",
+  "description": "Leading media group",
+  "logo": "https://example.com/nation-media-group-logo.png",
+  "website": "https://nationmedia.com",
+  "contactEmail": "contact@nationmedia.com",
   "contactPhone": "+254712345678",
-  "address": "123 Safaricom Street, Nairobi, Kenya"
+  "address": "Kimathi Street, Nairobi, Kenya"
 }
 
 ### Get all sponsors

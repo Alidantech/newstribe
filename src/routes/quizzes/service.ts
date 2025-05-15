@@ -2,7 +2,9 @@ import { Quiz } from "./model";
 import { Content } from "../content/model";
 import { ApiError } from "../../utils/api.errors";
 import { ApiFeatures } from "../../utils/api.features";
-import { IQuiz } from "./type";
+import { IQuiz, QuizDifficulty, QuizStatus } from "./type";
+import { AIGenerator } from "../../utils/ai";
+import { getContentByIdService } from "../content/service";
 
 /**
  * Create a new quiz
@@ -29,15 +31,44 @@ export const createQuizService = async (quizData: Partial<IQuiz>): Promise<IQuiz
 };
 
 /**
+ * Generate quiz with AI by content ID
+ */
+export const generateQuizByContentIdService = async (
+  contentId: string,
+  difficulty: QuizDifficulty
+): Promise<IQuiz> => {
+  const content = await Content.findById(contentId);
+  if (!content) {
+    throw new ApiError(404, "Content not found");
+  }
+
+  let quizDifficulty = difficulty;
+
+  // validate difficulty
+  if (!Object.values(QuizDifficulty).includes(difficulty)) {
+    quizDifficulty = QuizDifficulty.MEDIUM;
+  }
+
+  const quizData = await AIGenerator.generateQuizQuestions(contentId, getContentByIdService, {
+    timeLimit: 300,
+    maxAttempts: 3,
+    difficulty: quizDifficulty,
+  });
+
+  const quiz = await Quiz.create(quizData);
+
+  return quiz;
+};
+
+/**
  * Get all quizzes
  */
 export const getAllQuizzesService = async (query: any = {}): Promise<any> => {
-  const apiFeatures = new ApiFeatures(
-    Quiz.find().populate("content"),
-    query
-  )
+  const apiFeatures = new ApiFeatures(Quiz.find().populate("content"), query)
     .filteration()
     .sort()
+    .search()
+    .fields()
     .pagination();
 
   const quizzes = await apiFeatures.getPaginatedData<IQuiz>("quizzes");
@@ -100,24 +131,21 @@ export const getActiveQuizzesService = async (): Promise<IQuiz[]> => {
   return Quiz.find({
     status: "active",
     startDate: { $lte: now },
-    endDate: { $gte: now }
+    endDate: { $gte: now },
   }).populate("content");
 };
 
 /**
  * Update quiz status
  */
-export const updateQuizStatusService = async (
-  quizId: string,
-  status: string
-): Promise<IQuiz> => {
+export const updateQuizStatusService = async (quizId: string, status: string): Promise<IQuiz> => {
   const quiz = await Quiz.findById(quizId);
   if (!quiz) {
     throw new ApiError(404, "Quiz not found");
   }
 
-  quiz.status = status as "active" | "inactive" | "completed";
+  quiz.status = status as QuizStatus;
   await quiz.save();
 
   return quiz;
-}; 
+};

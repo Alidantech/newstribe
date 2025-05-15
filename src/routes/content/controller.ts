@@ -31,3 +31,8 @@ export const getAllContent = catchAsyncError(async (req: Request, res: Response)
   const contents = await contentService.getAllContentService(req.query);
   ApiResponse.success(res, contents, "Contents fetched successfully");
 });
+
+export const generateContent = catchAsyncError(async (req: Request, res: Response) => {
+  const content = await contentService.generateContentService(req.body);
+  ApiResponse.success(res, { content }, "Content generated successfully");
+});

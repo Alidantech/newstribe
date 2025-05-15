@@ -36,6 +36,13 @@ router.use(protectedRoute);
 router.post("/", contentController.createContent);
 
 /**
+ * @route POST /content/generate
+ * @desc Generate content
+ * @access Private
+ */
+router.post("/generate", contentController.generateContent);
+
+/**
  * @route PUT /content/:id
  * @desc Update content
  * @access Private

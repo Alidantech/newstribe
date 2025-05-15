@@ -1,0 +1,62 @@
+@baseUrl = http://localhost:5000/users/preferences
+
+### Create or update preferences
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "categories": ["news", "technology"],
+  "preferredFormats": ["article", "video"],
+  "readingLevel": "intermediate",
+  "notificationPreferences": ["email", "push"],
+  "dailyDigest": true,
+  "weeklyDigest": false,
+  "language": "en",
+  "timezone": "UTC"
+}
+
+### Get user preferences
+GET {{baseUrl}}
+
+### Generate preferences using AI
+POST {{baseUrl}}/generate
+Content-Type: application/json
+
+{
+  "viewedContent": [
+    {
+      "title": "Tech News",
+      "type": "article",
+      "category": "technology"
+    }
+  ],
+  "completedQuizzes": [
+    {
+      "title": "Tech Quiz",
+      "score": 85,
+      "difficulty": "medium"
+    }
+  ],
+  "sharedContent": [
+    {
+      "title": "Business News",
+      "type": "article",
+      "category": "business"
+    }
+  ]
+}
+
+### Update specific preference fields
+PATCH {{baseUrl}}
+Content-Type: application/json
+
+{
+  "readingLevel": "advanced",
+  "dailyDigest": false
+}
+
+### Get preferences by category
+GET {{baseUrl}}/category/technology
+
+### Get preferences by reading level
+GET {{baseUrl}}/level/intermediate 

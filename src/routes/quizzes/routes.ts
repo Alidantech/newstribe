@@ -8,6 +8,7 @@ const router = Router();
 router.get("/", quizzesController.getAllQuizzes);
 router.get("/active", quizzesController.getActiveQuizzes);
 router.get("/:quizId", quizzesController.getQuizById);
+router.get("/generate/:contentId", quizzesController.generateQuizByContentId);
 
 router.use(protectedRoute);
 

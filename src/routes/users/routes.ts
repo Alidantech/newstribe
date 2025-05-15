@@ -7,6 +7,7 @@ import badgesRoutes from "./badges/routes";
 import progressRoutes from "./progress/routes";
 import rewardsRoutes from "./rewards/routes";
 import pointsRoutes from "./points/routes";
+import preferencesRoutes from "./preferences/routes";
 
 const router = Router();
 
@@ -89,5 +90,6 @@ router.use("/badges", badgesRoutes);
 router.use("/progress", progressRoutes);
 router.use("/rewards", rewardsRoutes);
 router.use("/points", pointsRoutes);
+router.use("/preferences", preferencesRoutes);
 
 export default router;

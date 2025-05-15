@@ -25,6 +25,7 @@ export interface IContent extends Document {
   isSponsored: boolean;
   sponsor?: ISponsor;
   blockchainHash?: string;
+  tags: string[];
   trustRating: number;
   trustRatingCount: number;
   audioUrl?: string;

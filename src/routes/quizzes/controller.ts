@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { catchAsyncError } from "../../utils/api.catcher";
 import { ApiResponse } from "../../utils/api.response";
 import * as quizzesService from "./service";
+import { QuizDifficulty } from "./type";
 
 /**
  * Create a new quiz
@@ -9,6 +10,16 @@ import * as quizzesService from "./service";
 export const createQuiz = catchAsyncError(async (req: Request, res: Response) => {
   const quiz = await quizzesService.createQuizService(req.body);
   ApiResponse.success(res, { quiz }, "Quiz created successfully");
+});
+
+/**
+ * Generate quiz with AI by content ID
+ */
+export const generateQuizByContentId = catchAsyncError(async (req: Request, res: Response) => {
+  const { contentId } = req.params;
+  const { difficulty } = req.query;
+  const quiz = await quizzesService.generateQuizByContentIdService(contentId, difficulty as QuizDifficulty);
+  ApiResponse.success(res, { quiz }, "Quiz generated successfully");
 });
 
 /**
