@@ -7,10 +7,10 @@ POST {{baseUrl}}/register
 Content-Type: application/json
 
 {
-  "firstName": "Ali",
-  "lastName": "Dante",
-  "email": "alidante@gmail.com",
-  "password": "password123"
+  "firstName": "Raphael",
+  "lastName": "Nyakundi",
+  "email": "raphaelnyakundi@gmail.com",
+  "password": "password23"
 }
 
 ### Login User
@@ -18,8 +18,8 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-  "email": "user-agent1@gmail.com",
-  "password": "password123"
+  "email": "raphaelnyakundi@gmail.com",
+  "password": "password23"
 }
 
 # !PUBLIC ROUTES

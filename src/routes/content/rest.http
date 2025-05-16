@@ -37,12 +37,12 @@ POST {{baseUrl}}/generate
 Content-Type: application/json
 
 {
-  "prompt": "Quiz about the history of Kenya",
+  "prompt": "A quiz about betting and its effects on kenya",
   "options": {
-    "type": "quiz",
-    "imageUrl": "https://images.pexels.com/photos/16912471/pexels-photo-16912471/free-photo-of-seine-river-in-paris.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "History",
-    "tags": ["history", "kenya", "africa"],
+    "type": "article",
+    "imageUrl": "https://images.pexels.com/photos/16912471/pexels-photo-16912471/free-photo-of-seine-river-in-paris.jpeg?auto=compress&cs=tinysrgb&w=500",
+    "category": "Sports",
+    "tags": ["sports", "kenya", "africa"],
     "estimatedReadTime": 2,
     "points": 200,
     "isSponsored": true,
