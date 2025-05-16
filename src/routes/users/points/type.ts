@@ -5,7 +5,12 @@ export enum PointsSource {
   QUIZ_COMPLETION = "quiz_completion",
   GAME_PLAY = "game_play",
   BADGE_EARN = "badge_earn",
+  COMMENT = "comment",
+  LIKE = "like",
+  SHARE = "share",
+  RATE = "rate",
 }
+
 
 export interface IUserPoints extends Document {
   user: IUser;

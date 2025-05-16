@@ -27,3 +27,13 @@ export const getUserPointsBySource = catchAsyncError(async (req: Request | any, 
   const points = await pointsService.getUserPointsBySourceService(req.user._id, source);
   ApiResponse.success(res, { points }, "Points by source fetched successfully");
 });
+
+/**
+ * Award points to a user
+ */
+export const awardPoints = catchAsyncError(async (req: Request | any, res: Response) => {
+  const { points, source, description } = req.body;
+  const awardedPoints = await pointsService.awardPointsService(req.user._id, points, source, description);
+  ApiResponse.success(res, { awardedPoints }, "Points awarded successfully");
+});
+

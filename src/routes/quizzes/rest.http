@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Generate quiz with AI by content ID
-GET {{baseUrl}}/generate/68265e35b08f8342a6e2ab1f?difficulty=medium
+GET {{baseUrl}}/generate/6826823dc059109973c0bb7b?difficulty=medium
 
 ### Get all quizzes
 GET {{baseUrl}}

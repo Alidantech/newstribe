@@ -5,15 +5,13 @@ import { protectedRoute } from "../../../middleware/auth-user";
 const router = Router();
 
 // Public routes
-router.get("/", commentsController.getAllComments);
-router.get("/content/:contentId", commentsController.getCommentsByContent);
-router.get("/user/:userId", commentsController.getCommentsByUser);
-router.get("/:commentId", commentsController.getCommentById);
+router.get("/:contentId", commentsController.getAllComments);
+router.get("/:contentId/:commentId", commentsController.getCommentById);
 
 // Protected routes
 router.use(protectedRoute);
-router.post("/", commentsController.createComment);
-router.put("/:commentId", commentsController.updateComment);
-router.delete("/:commentId", commentsController.deleteComment);
+router.post("/:contentId", commentsController.createComment);
+router.put("/:contentId/:commentId", commentsController.updateComment);
+router.delete("/:contentId/:commentId", commentsController.deleteComment);
 
 export default router; 

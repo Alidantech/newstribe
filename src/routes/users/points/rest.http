@@ -11,3 +11,14 @@ Content-Type: application/json
 ### Get Points by Source
 GET {{baseUrl}}/source/content_read
 Content-Type: application/json 
+
+### Award Points
+POST {{baseUrl}}/award
+Content-Type: application/json
+
+{
+  "points": 10,
+  "source": "content_read",
+  "description": "Awarded points for reading content"
+}
+

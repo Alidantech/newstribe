@@ -15,7 +15,10 @@ export const createCommentService = async (commentData: Partial<IComment>): Prom
  * Get all comments
  */
 export const getAllCommentsService = async (query: any = {}): Promise<any> => {
-  const apiFeatures = new ApiFeatures(Comment.find(), query)
+  const apiFeatures = new ApiFeatures(
+    Comment.find().populate("user", "firstName lastName email avatar"),
+    query
+  )
     .filteration()
     .sort()
     .search()
@@ -30,7 +33,10 @@ export const getAllCommentsService = async (query: any = {}): Promise<any> => {
  * Get comment by ID
  */
 export const getCommentByIdService = async (commentId: string): Promise<IComment> => {
-  const comment = await Comment.findById(commentId).populate("user", "name email avatar");
+  const comment = await Comment.findById(commentId).populate(
+    "user",
+    "firstName lastName email avatar"
+  );
   if (!comment) {
     throw new ApiError(404, "Comment not found");
   }
@@ -71,7 +77,10 @@ export const deleteCommentService = async (commentId: string): Promise<void> => 
  * Get comments by content ID
  */
 export const getCommentsByContentService = async (contentId: string): Promise<any> => {
-  const apiFeatures = new ApiFeatures(Comment.find({ content: contentId }), {})
+  const apiFeatures = new ApiFeatures(
+    Comment.find({ content: contentId }).populate("user", "firstName lastName email avatar"),
+    {}
+  )
     .filteration()
     .sort()
     .search()

@@ -28,4 +28,11 @@ router.get("/total", pointsController.getUserTotalPoints);
  */
 router.get("/source/:source", pointsController.getUserPointsBySource);
 
-export default router; 
+/**
+ * @route POST /users/points/award
+ * @desc Award points to a user
+ * @access Private
+ */
+router.post("/award", pointsController.awardPoints);
+
+export default router;

@@ -57,18 +57,18 @@ router.put("/:id", contentController.updateContent);
 router.delete("/:id", contentController.deleteContent);
 
 //! CONTENT TAGS ROUTES
-router.use("/:id/tags", contentTagRouter);
+router.use("/tags", contentTagRouter);
 
 //! CONTENT COMMENTS ROUTES
-router.use("/:id/comments", contentCommentRouter);
+router.use("/comments", contentCommentRouter);
 
 //! CONTENT LIKES ROUTES
-router.use("/:id/likes", contentLikeRouter);
+router.use("/likes", contentLikeRouter);
 
 //! CONTENT SHARES ROUTES
-router.use("/:id/shares", contentShareRouter);
+router.use("/shares", contentShareRouter);
 
 //! CONTENT VIEWS ROUTES
-router.use("/:id/views", contentViewRouter);
+router.use("/views", contentViewRouter);
 
 export default router;

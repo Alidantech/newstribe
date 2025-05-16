@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema(
     avatar: { type: String, trim: true },
     isEmailVerified: { type: Boolean, default: false },
     roles: { type: [String], enum: UserRoles, default: [UserRoles.USER] },
+    points: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

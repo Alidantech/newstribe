@@ -10,6 +10,7 @@ import { IUser } from "../../users/type";
 export const createComment = catchAsyncError(async (req: Request & { user: IUser }, res: Response) => {
   const comment = await commentsService.createCommentService({
     ...req.body,
+    content: req.params.contentId,
     user: req.user._id
   });
   ApiResponse.success(res, { comment }, "Comment created successfully");

@@ -1,7 +1,7 @@
 import { QuizDifficulty } from "../routes/quizzes/type";
 import { MISTRAL_API_KEY, MISTRAL_URL } from "../config/env.config";
 import { PROMPTS } from "../config/prompts";
-import { ContentType } from "../routes/content/type";
+import { ContentLevel, ContentType } from "../routes/content/type";
 
 // rmove html from content
 const removeHtml = (content: string) => {
@@ -337,6 +337,7 @@ export class AIGenerator {
       sponsor?: string;
       tags: string[];
       estimatedReadTime: number;
+      level: ContentLevel;
     }
   ): Promise<any> {
     const contentPrompt = `
@@ -428,7 +429,12 @@ export class AIGenerator {
       const cleanJson = responseJson.replace(/```json\n?|\n?```/g, "").trim();
       const content = JSON.parse(cleanJson) as any;
 
-      return { ...content, estimatedReadTime: options.estimatedReadTime, points: options.points };
+      return {
+        ...content,
+        estimatedReadTime: options.estimatedReadTime,
+        points: options.points,
+        level: options.level,
+      };
     } catch (error) {
       console.error("Failed to parse generated content:", error);
       throw new Error("Failed to generate valid content");

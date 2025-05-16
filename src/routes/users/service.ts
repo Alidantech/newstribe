@@ -59,6 +59,11 @@ export const getUserByIdService = async (id: string): Promise<IUser> => {
  * Update user
  */
 export const updateUserService = async (id: string, updateData: Partial<IUser>): Promise<IUser> => {
+  // remove password and roles and points from updateData
+  delete updateData.password;
+  delete updateData.roles;
+  delete updateData.points;
+
   const user = await User.findByIdAndUpdate(id, updateData, {
     new: true,
     runValidators: true,

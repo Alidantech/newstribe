@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IContent, ContentType, ContentStatus } from "./type";
+import { IContent, ContentType, ContentStatus, ContentLevel } from "./type";
 
 // Content Schema
 const contentSchema = new mongoose.Schema<IContent>(
@@ -20,6 +20,8 @@ const contentSchema = new mongoose.Schema<IContent>(
     trustRatingCount: { type: Number, default: 0 },
     audioUrl: { type: String },
     content: { type: String, required: true },
+    level: { type: String, enum: ContentLevel, required: true },
+    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "Quiz" },
   },
   { timestamps: true }
 );

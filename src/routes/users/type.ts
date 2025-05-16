@@ -14,13 +14,13 @@ export enum UserRoles {
 }
 
 export interface IUser extends Document {
-  points: number;
   firstName: string;
   lastName: string;
   email: string;
   status: UserStatus;
   isEmailVerified: boolean;
   roles: UserRoles[];
+  points: number;
   phone?: string;
   avatar?: string;
   password: string;
