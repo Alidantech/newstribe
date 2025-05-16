@@ -17,6 +17,7 @@ export enum ContentStatus {
 export interface IContent extends Document {
   title: string;
   description: string;
+  imageUrl: string;
   type: ContentType;
   status: ContentStatus;
   category: string;

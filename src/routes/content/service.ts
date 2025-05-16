@@ -54,7 +54,11 @@ export const generateContentService = async (contentData: {
   console.log(content);
 
   // create content
-  const newContent = await createContentService(content);
+  const newContent = await createContentService({
+    ...content,
+    imageUrl: options.imageUrl || "",
+  });
+  
   return newContent;
 };
 

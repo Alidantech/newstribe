@@ -37,11 +37,12 @@ POST {{baseUrl}}/generate
 Content-Type: application/json
 
 {
-  "prompt": "Nation Media Group is the best media group in Kenya",
+  "prompt": "Betika is the best sports betting platform in Kenya",
   "options": {
-    "type": "article",
-    "category": "Media",
-    "tags": ["nation media group", "media group", "kenya", "africa", "media"],
+    "type": "sponsored",
+    "imageUrl": "https://images.pexels.com/photos/16912471/pexels-photo-16912471/free-photo-of-seine-river-in-paris.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "category": "Sports",
+    "tags": ["betika", "sports betting", "kenya", "africa", "sports"],
     "estimatedReadTime": 2,
     "points": 200,
     "isSponsored": true,

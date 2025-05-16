@@ -6,6 +6,7 @@ const contentSchema = new mongoose.Schema<IContent>(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
+    imageUrl: { type: String, required: true },
     type: { type: String, enum: ContentType, required: true },
     status: { type: String, enum: ContentStatus, default: ContentStatus.ACTIVE },
     category: { type: String, required: true },

@@ -24,12 +24,13 @@ GET {{baseUrl}}/active
 GET {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
 
 ### Update sponsor
-PUT {{baseUrl}}/65f1a2b3c4d5e6f7g8h9i0j1
+PUT {{baseUrl}}/682672a0998ea46021d87519
 Content-Type: application/json
 
 {
   "description": "Premier technology solutions provider in East Africa",
   "contactPhone": "+254798765432",
+  "logo": "https://pbs.twimg.com/profile_images/1230818600820334593/g0JXP_6o_400x400.jpg",
   "address": "456 Innovation Avenue, Nairobi, Kenya"
 }
 
