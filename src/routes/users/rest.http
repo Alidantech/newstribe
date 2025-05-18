@@ -9,7 +9,7 @@ Content-Type: application/json
 {
   "firstName": "Ali",
   "lastName": "Dante",
-  "email": "alidante@gmail.com",
+  "email": "peter@gmail.com",
   "password": "password123"
 }
 
@@ -18,7 +18,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-  "email": "user-agent1@gmail.com",
+  "email": "peter@gmail.com",
   "password": "password123"
 }
 
