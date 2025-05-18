@@ -21,6 +21,7 @@
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "chalk": "^5.4.1",
+    "client": "^0.0.1",
     "concurrently": "^9.1.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -36,6 +37,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-email": "^4.0.2",
+    "rest": "^2.0.0",
     "stripe": "^17.5.0",
     "twilio": "^5.4.2"
   },

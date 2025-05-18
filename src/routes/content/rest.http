@@ -37,12 +37,12 @@ POST {{baseUrl}}/generate
 Content-Type: application/json
 
 {
-  "prompt": "Get home delivery of your favorite food from your favorite restaurant",
+  "prompt": "A quiz about betting and its effects on kenya",
   "options": {
-    "type": "sponsored",
-    "imageUrl": "https://images.pexels.com/photos/30463342/pexels-photo-30463342/free-photo-of-yellow-uber-taxi-on-urban-street.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "category": "Technology",
-    "tags": ["technology", "transport", "uber", "sponsored"],
+    "type": "article",
+    "imageUrl": "https://images.pexels.com/photos/16912471/pexels-photo-16912471/free-photo-of-seine-river-in-paris.jpeg?auto=compress&cs=tinysrgb&w=500",
+    "category": "Sports",
+    "tags": ["sports", "kenya", "africa"],
     "estimatedReadTime": 2,
     "points": 450,
     "isSponsored": true,
