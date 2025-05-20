@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import { dbConnection } from "./config/db.config";
 import { bootstrap } from "./utils/api.bootstrap";
 import { PORT } from "./config/env.config";
+import path from "path";
 
 /**
  * Initializes an Express application.
@@ -26,28 +27,39 @@ import { PORT } from "./config/env.config";
  *
  * @see {@link https://expressjs.com/} for more information about Express.
  */
-const port = PORT;
 const app = express();
 
-// Middleware to parse incoming requests with JSON payloads
-app.use(cookieParser());
-
-// Middleware to allow cross-origin requests
-app.use(cors());
-
-// Middleware to parse incoming requests with JSON payloads
+// Middleware
 app.use(express.json());
-
-// Middleware to parse incoming requests with URL-encoded payloads
-bootstrap(app, __dirname);
-
-// Middleware to log incoming requests to the console
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(morgan("dev"));
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : 'http://localhost:3000',
+  credentials: true
+}));
 
-// Connect to the database
-dbConnection();
+// Get the src directory path
+const srcDirectory = path.join(__dirname);
+
+// Initialize routes
+bootstrap(app, srcDirectory);
+
+// Start server function
+async function startServer() {
+  try {
+    // Connect to database first
+    await dbConnection();
+    
+    // Only start server after successful database connection
+    app.listen(PORT, () => {
+      console.log(`✅ Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("❌ Failed to start server:", error);
+    process.exit(1);
+  }
+}
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server listening on  http://localhost:${port}`);
-});
+startServer();
