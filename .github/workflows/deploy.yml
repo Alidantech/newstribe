@@ -20,7 +20,7 @@ jobs:
           timeout: 30s
           script: |
             # Clone or pull latest backend code
-            cd ~/newstribe-backend || git clone git@github.com:SierreTechnologies/newstribe-backend.git && cd newstribe-backend
+            cd ~/newstribe-backend || git clone git@github.com:Alidantech/newstribe-backend.git && cd newstribe-backend
             git pull origin main
 
             # Stop and remove any existing backend container
