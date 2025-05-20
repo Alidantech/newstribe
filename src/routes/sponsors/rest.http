@@ -5,13 +5,13 @@ POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "name": "Nation Media Group",
-  "description": "Leading media group",
-  "logo": "https://example.com/nation-media-group-logo.png",
-  "website": "https://nationmedia.com",
-  "contactEmail": "contact@nationmedia.com",
+  "name": "Uber",
+  "description": "Leading ride-sharing company",
+  "logo": "https://images.pexels.com/photos/30463342/pexels-photo-30463342/free-photo-of-yellow-uber-taxi-on-urban-street.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "website": "https://uber.com",
+  "contactEmail": "contact@uber.com",
   "contactPhone": "+254712345678",
-  "address": "Kimathi Street, Nairobi, Kenya"
+  "address": "New York, USA"
 }
 
 ### Get all sponsors
